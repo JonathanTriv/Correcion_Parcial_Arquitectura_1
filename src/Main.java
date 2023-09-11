@@ -43,7 +43,44 @@ public class Main {
                     }while (opc != 5);
                 }
                 case 2->{
-                    Empleado E1 = new Empleado("1003023891",1145000.0,20000.0,20);
+                    Empleado E1 = new Empleado();
+                    System.out.println("Ingrese su cedula: ");
+                    E1.setCedula(scanner.next());
+                    System.out.println("Ingrese sus horas extras realizadas este mes: ");
+                    E1.setHoraExtrasRealizadas(scanner.nextInt());
+                    System.out.println("Esta casado: ");
+                    System.out.println("1.SI ");
+                    System.out.println("2.NO ");
+                    int numcasado = scanner.nextInt();
+                    while (numcasado != 1 && numcasado != 2 ) {
+                        System.out.println("Digita una opcion valida");
+                        System.out.println("1.SI ");
+                        System.out.println("2.NO ");
+                        numcasado = scanner.nextInt();
+                    }
+                    boolean casado;
+                    if (numcasado == 1){
+                        casado = true;
+                    }else {
+                        casado = false;
+                    }
+                    System.out.println("Digita la cantidad de hijos que tienes: ");
+                    int hijos = scanner.nextInt();
+
+                    System.out.println("Selecciona la retencion a la que pertences: ");
+                    System.out.println("1.Servicios Generales ");
+                    System.out.println("2.Por Emolumentos Eclesiasticos ");
+                    System.out.println("3.Servicios De Transporte De Carga ");
+                    int retencion = scanner.nextInt();
+
+                    while (retencion != 1 && retencion != 2 && retencion != 3) {
+                        System.out.println("Digita una opcion valida");
+                        System.out.println("1.Servicios Generales ");
+                        System.out.println("2.Por Emolumentos Eclesiasticos ");
+                        System.out.println("3.Servicios De Transporte De Carga ");
+                        retencion = scanner.nextInt();
+                    }
+
                     do {
                         System.out.println("Empleado");
                         System.out.println("1.Horas Extras");
@@ -57,7 +94,7 @@ public class Main {
                             case 1 -> System.out.println("Las horas extras ralizadas este mes suman la catidad de: "+E1.horasExtras());
                             case 2 -> System.out.println("El sueldo bruto de este mas es: "+E1.salarioBruto());
                             case 3 -> System.out.println("Las retenciones para este mes son de: "+E1.retenciones(true,2,1));
-                            case 4 -> E1.visualisarInformacion(true, 2, 1);
+                            case 4 -> E1.visualisarInformacion(casado, hijos, retencion);
                             default -> {
                                 System.out.println("Saliendo...");
                             }
